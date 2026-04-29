@@ -44,9 +44,6 @@ jobs:
         run: npm run build
 
       - name: Deploy frontend
-        env:
-          SSH_USER: ${{ secrets.USER }}
-          SSH_HOST: ${{ secrets.HOST }}
         run: |
           scp -i ~/.ssh/id_rsa -r  dist/*  ${{ secrets.USER }}@${{ secrets.HOST }}:/ecommerce/consumer/dist/
 
