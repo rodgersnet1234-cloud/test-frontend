@@ -14,7 +14,6 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: false,
-  transpileDependencies: true,
   productionSourceMap: false,
   devServer: {
     port: port,
@@ -64,12 +63,6 @@ module.exports = {
     config.plugins.delete('preload') // TODO: need test
     config.plugins.delete('prefetch') // TODO: need test
 
-    config.module
-      .rule('mjs')
-      .test(/\.mjs$/)
-      .include.add(/node_modules/)
-      .end()
-      .type('javascript/auto')
     // sass-resources-loader
     config.module
       .rule('scss')
