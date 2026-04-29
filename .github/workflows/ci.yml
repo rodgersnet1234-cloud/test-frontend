@@ -48,5 +48,5 @@ jobs:
           SSH_USER: ${{ secrets.USER }}
           SSH_HOST: ${{ secrets.HOST }}
         run: |
-          scp -i ~/.ssh/id_rsa -r  StrictHostKeyChecking=no dist/*  ${{ secrets.USER }}@${{ secrets.HOST }}:/ecommerce/consumer/dist/
+          scp -i ~/.ssh/id_rsa -r  dist/*  ${{ secrets.USER }}@${{ secrets.HOST }}:/ecommerce/consumer/dist/
 
