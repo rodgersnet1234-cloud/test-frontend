@@ -14,6 +14,9 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: false,
+  transpileDependencies: [
+    'fuse.js'
+  ],
   productionSourceMap: false,
   devServer: {
     port: port,
