@@ -34,6 +34,11 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
+      - name: Debug SSH values
+        run: |
+          echo "USER=${{ secrets.USER }}"
+          echo "HOST=${{ secrets.HOST }}"
+
       - name: Install dependencies
         run: npm install
 
