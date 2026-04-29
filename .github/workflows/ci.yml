@@ -20,14 +20,19 @@ jobs:
         with:
           node-version: 18
 
-      - name: Setup SSH key
+      - name: Copy java.zip from remote server
         env:
+          SSH_USER: ${{ secrets.USER }}
+          SSH_HOST: ${{ secrets.HOST }}
           SSH_KEY: ${{ secrets.SSH_KEY }}
         run: |
+          # Prepare SSH key
           mkdir -p ~/.ssh
+          echo "$SSH_USER"
+          echo "$SSH_HOST"
+          echo "SSH_KEY"
           echo "$SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
       - name: Install dependencies
         run: npm install
